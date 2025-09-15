@@ -1,0 +1,89 @@
+CSC2101 – Artificial Intelligence
+Assignment Task: Weeks 3 & 4
+Group Discussions – Individual Submissions
+(1) Task Overview
+For Weeks 3 and 4, you must complete the Diploma in Fundamentals of Artificial
+Intelligence (NPTEL) on Alison and use it to strengthen your understanding of AI
+foundations. Here is the course: https://alison.com/course/diploma-in-fundamentals-
+of-artificial-intelligence
+Beyond summarizing the modules, you must trace connections between the Alison course
+content and the following areas already studied in class:
+• Data Mining (classification, clustering, association, anomaly detection).
+• Howard Gardner’s 8 Types of Intelligence (e.g., linguistic, logical-
+mathematical, spatial, etc.).
+• Computational AI Philosophies (Strong vs Weak AI, Turing Test, Chinese Room,
+Frame Problem, Simulation Argument, Connectionism vs Classical theories).
+Your outputs must show evidence of integration: do not only summarize Alison modules
+but also link them with prior concepts and your team project context.
+You must:
+1. Complete the Alison course and obtain the certificate.
+2. Post the certificate on your LinkedIn profile.
+3. Prepare a detailed PowerPoint slide deck covering all course modules.
+4. Record a video presentation explaining your slides.
+5. Submit the certificate, slides, and YouTube link through the Google Form
+provided.
+Although you are expected to discuss course concepts in your groups, all outputs must
+be completed and submitted individually.
+(2) Instructions
+A. Alison Certificate
+1. Create your Alison account and enroll in the course:
+Diploma in Fundamentals of Artificial Intelligence.
+2. Complete all modules and assessments.
+3. Download the official Alison Certificate.
+4. Post the certificate on LinkedIn with a professional reflection (2–3
+sentences) connecting the course to your project.
+5. Capture a screenshot of the LinkedIn post.
+6. Upload both the certificate PDF and LinkedIn proof during submission:
+https://forms.gle/Ze4vF6gN6uBYzzMx5
+B. PowerPoint Slide Deck
+You must prepare a slide deck covering all course modules. For each module, create
+four slides:
+• Slides 1–3: Summarize the key concepts clearly, using bullet points, diagrams,
+or examples.
+• Slide 4: Relate the module’s concepts explicitly to your team project.
+The modules to be covered are:
+1. Artificial Intelligence: History, Trends, and Future – explain AI’s origins,
+milestones, current trends, and future predictions. Application: locate your project
+in this trajectory (e.g., AI for Ugandan agriculture or healthcare).
+• Data Mining: Show how historical shifts (symbolic → statistical → deep
+learning) mirror the evolution of data mining from rule-based systems to
+predictive models.
+• Types of Intelligence: Link to logical-mathematical intelligence (reasoning
+across milestones) and linguistic intelligence (AI’s rise in NLP).
+• Philosophy: Reflect on Strong vs Weak AI debates in shaping the “future of AI”
+narrative.
+• Project Example: “In our agricultural disease detection project, we situate
+our solution within the trend of moving from expert systems to ML-based
+detection.”
+2. Introduction to Problem Solving in AI – define problems in terms of states,
+operators, and goals. Application: frame your dataset and objectives as problem
+states.
+• Data Mining: Show how classification problems can be reframed as state-space
+search (e.g., classifying patient symptoms).
+• Types of Intelligence: Connect to logical-mathematical intelligence
+(structuring problems formally).
+• Philosophy: Raise the Frame Problem — can AI know which aspects of a problem
+state are relevant?
+• Project Example: “In our chatbot, defining a problem as ‘initial state =
+symptoms’ and ‘goal state = likely diagnosis’ makes reasoning transparent.”
+3. Problem Solving by Search – present uninformed and informed search methods (DFS,
+BFS, A*, heuristics). Application: link to diagnosis, resource allocation, or
+optimization in your project.
+• Data Mining: Highlight how clustering can reduce search complexity by grouping
+states.
+• Types of Intelligence: Connect to spatial intelligence (navigating search
+trees).
+• Philosophy: Relate to simulation argument — is the search tree itself a
+“simulation” of possibilities?
+• Project Example: “Our maternal health assistant uses heuristic search to
+prioritize safer treatment options more quickly.”
+4. Knowledge Representation and Reasoning (Overview + FOL) – explain symbolic
+representations and FOL rules. Application: show how your project encodes rules or
+relationships.
+• Data Mining: Association rules → transformed into FOL expressions.
+• Types of Intelligence: Connect to linguistic intelligence (expressing rules)
+and intrapersonal intelligence (self-reflective rules).
+• Philosophy: Consider limits of formalization — can all knowledge be captured
+symbolically?
+• Project Example: “Our smart irrigation project encodes knowledge such as: ‘IF
+soil moisture < 30% AND rainfall probability < 20%, THEN irrigate.’”
