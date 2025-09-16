@@ -63,19 +63,46 @@ sentio/
 ## Usage
 
 ### 1. Data Processing
-Extract audio features from your dataset:
+Audio features are already extracted in the "selected" folder with each song's features in separate CSV files.
+
+### 2. Train Emotion Prediction Models
+
+#### For Static Emotion Prediction
+
+Train models on static emotion annotations (overall ratings for each song):
+
 ```bash
-python src/data_processing/audio_features.py
+bash scripts/train_static_models.sh
 ```
 
-### 2. Train Emotion Classifier
-Train the emotional classification model:
+This trains three types of models:
+
+- Linear/Ridge Regression
+- Support Vector Regression (SVR) with different kernels
+- XGBoost Regression
+
+#### For Dynamic Emotion Prediction
+
+Train models on dynamic emotion annotations (time-varying emotions):
+
 ```bash
-bash scripts/train_classifier.sh
+bash scripts/train_dynamic_models.sh
 ```
 
-### 3. Generate Music
-Generate music based on emotional input:
+### 3. Compare Model Performance
+
+After training, compare the performance of different models:
+
+```bash
+python src/utils/evaluate_results.py --results_dir output/results
+```
+
+The evaluation provides metrics including R², RMSE, and MAE for each model type.
+
+### 4. Generate Music (Future Phase)
+
+Generate music based on emotional input (upcoming feature):
+
 ```bash
 bash scripts/generate_music.sh --emotion "joy" --duration 30
 ```
@@ -83,21 +110,25 @@ bash scripts/generate_music.sh --emotion "joy" --duration 30
 ## Development Phases
 
 ### Phase 1: Emotional Classification ✅
+
 - [x] Audio feature extraction (MFCCs, Chroma, Mel Spectrograms)
-- [x] CNN-RNN hybrid architecture for emotion classification
+- [x] Traditional ML models for emotion regression (Linear/Ridge, SVR, XGBoost)
 - [x] Training pipeline and model evaluation
 
 ### Phase 2: Music Generation 🚧
+
 - [ ] VAE/GAN architecture for conditional music generation
 - [ ] Emotion-conditioned latent space modeling
 - [ ] Audio synthesis and output generation
 
 ### Phase 3: Advanced Emotions 📋
+
 - [ ] Extended emotional vocabulary
 - [ ] Support for "Dictionary of Obscure Sorrows" emotions
 - [ ] Nuanced emotional parameter handling
 
 ### Phase 4: Optimization 📋
+
 - [ ] Model architecture improvements
 - [ ] Real-time generation capabilities
 - [ ] User interface development
@@ -123,5 +154,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Contact
 
 - Project Maintainer: [Your Name]
-- Repository: https://github.com/winzerprince/sentio
-- Issues: https://github.com/winzerprince/sentio/issues
+- Repository: [https://github.com/winzerprince/sentio](https://github.com/winzerprince/sentio)
+- Issues: [https://github.com/winzerprince/sentio/issues](https://github.com/winzerprince/sentio/issues)

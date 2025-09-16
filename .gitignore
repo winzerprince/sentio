@@ -57,6 +57,9 @@ data/raw/
 *.tar.bz2
 *.rar
 *.7z
+features/
+selected/
+annotations
 
 # Dataset folder contents (keep structure but ignore data)
 dataset/*/
@@ -71,7 +74,6 @@ data/processed/features/
 *.pickle
 
 # Model Checkpoints and Logs
-models/
 checkpoints/
 logs/
 tensorboard_logs/
