@@ -59,6 +59,7 @@ data/raw/
 *.7z
 features/
 selected/
+annotations
 
 # Dataset folder contents (keep structure but ignore data)
 dataset/*/
