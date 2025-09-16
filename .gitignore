@@ -57,6 +57,8 @@ data/raw/
 *.tar.bz2
 *.rar
 *.7z
+features/
+selected/
 
 # Dataset folder contents (keep structure but ignore data)
 dataset/*/
