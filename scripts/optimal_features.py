@@ -70,10 +70,10 @@ def get_song_ids() -> list[int]:
     ids_1_2000 = pd.read_csv(static_1_2000)['song_id'].tolist()
     ids_2000_2058 = pd.read_csv(static_2000_2058)['song_id'].tolist()
     return ids_1_2000 + ids_2000_2058
-
-s_ids = get_song_ids()
-transform_csvs(s_ids)
-print(f"Total songs transformed: {len(s_ids)}")
+if __name__ == '__main__':
+    s_ids = get_song_ids()
+    transform_csvs(s_ids)
+    print(f"Total songs transformed: {len(s_ids)}")
 # groups = group_features(features)
 
 # total_selected = 0
