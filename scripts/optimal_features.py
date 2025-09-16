@@ -55,9 +55,25 @@ def transform_csvs(song_ids: list[int]) -> None:
             if grp == 'Others':
                 continue
             selected_features.extend(members)
-        df.to_csv(f'selected/{song}_selected.csv', columns=['frameTime'] + selected_features, index=False)
-    ...
+        df.to_csv(f'selected/_{song}_selected.csv', columns=['frameTime'] + selected_features, index=False)
+    print("Transformation complete.")
 
+def get_song_ids() -> list[int]:
+    """
+    make sure the annotations folder is in your root directory.
+    :return:
+    """
+    from pathlib import Path
+    ROOT = Path(__file__).resolve().parent
+    static_1_2000 = ROOT / 'annotations' / 'annotations averaged per song' / 'song_level' / 'static_annotations_averaged_songs_1_2000.csv'
+    static_2000_2058 = ROOT / 'annotations' / 'annotations averaged per song' / 'song_level' / 'static_annotations_averaged_songs_2000_2058.csv'
+    ids_1_2000 = pd.read_csv(static_1_2000)['song_id'].tolist()
+    ids_2000_2058 = pd.read_csv(static_2000_2058)['song_id'].tolist()
+    return ids_1_2000 + ids_2000_2058
+
+s_ids = get_song_ids()
+transform_csvs(s_ids)
+print(f"Total songs transformed: {len(s_ids)}")
 # groups = group_features(features)
 
 # total_selected = 0
