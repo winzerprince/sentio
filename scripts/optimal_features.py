@@ -2,10 +2,11 @@ from collections import defaultdict
 from typing import OrderedDict
 import pandas as pd
 
-# before running this file, get a sample csv file in the features directory and change the delimeter to a comma. then place it in this directory
-df = pd.read_csv('_2.csv')
 
-features = df.columns.values[1:].tolist()
+# df = pd.read_csv('_2.csv')
+# df2 = pd.read_csv('features/2001.csv', sep=';')
+# features = df.columns.values[1:].tolist()
+
 optimal_features_groups = OrderedDict([
         ("Energy", lambda n: "rms" in n.lower()), # 4 ,
         ("Spetral Rolloff", lambda n: "rolloff75" in n.lower() or "rolloff90" in n.lower()), # 8
@@ -16,12 +17,11 @@ optimal_features_groups = OrderedDict([
                 'mfcc_sma[1]' in n.lower() or
                 'mfcc_sma[2]' in n.lower() or
                 'mfcc_sma[3]' in n.lower() or
-                'mfcc_sma[4]'  in n.lower() or
-                'mfcc_sma_de[4]' in n.lower() or
                 'mfcc_sma_de[3]' in n.lower() or
                 'mfcc_sma_de[2]' in n.lower() or
                 'mfcc_sma_de[1]' in n.lower()
         )), # 16
+        ("Frequency features", lambda n: n.lower().startswith("f0")) # 2
 ])
 
 def group_features(columns: list[str]) -> dict[str, list[str]]:
@@ -32,7 +32,7 @@ def group_features(columns: list[str]) -> dict[str, list[str]]:
         for group, matcher in optimal_features_groups.items():
             try:
                 if matcher(l):
-                    grouped[group].append(l)
+                    grouped[group].append(c)
                     placed = True
                     break
             except Exception as e:
@@ -41,14 +41,35 @@ def group_features(columns: list[str]) -> dict[str, list[str]]:
             grouped['Others'].append(l)
     return grouped
 
-groups = group_features(features)
+def transform_csvs(song_ids: list[int]) -> None:
+    """
+    before running this function make sure you have a folder of features in your root directory with the individual csv files with ; delimeters. then create a folder called `selected` that will have the newly transformed features csv files with the selected features only.
+    :return:
+    """
+    for song in song_ids:
+        df = pd.read_csv(f'features/{song}.csv', sep=';')
+        features = df.columns.values[1:].tolist()
+        grps = group_features(features)
+        selected_features = []
+        for grp, members in grps.items():
+            if grp == 'Others':
+                continue
+            selected_features.extend(members)
+        df.to_csv(f'selected/{song}_selected.csv', columns=['frameTime'] + selected_features, index=False)
+    ...
 
-total_selected = 0
-for group, feats in groups.items():
-    if group == 'Others':
-        continue
-    total_selected += len(feats)
-    examples = ", ".join(feats)
-    print(f"{group}: {len(feats)} features; {examples}")
+# groups = group_features(features)
 
-print(f"Total selected features: {total_selected}")
+# total_selected = 0
+# selected = []
+# for group, feats in groups.items():
+#     if group == 'Others':
+#         continue
+#     selected.extend(feats)
+#     total_selected += len(feats)
+#     examples = ", ".join(feats)
+#     print(f"{group}: {len(feats)} features; {examples}")
+#
+# df.to_csv('_2_optimal_features.csv', columns=['frameTime'] + selected, index=False)
+# print(f"Total selected features: {total_selected}")
+# print(f"Selected features: {selected}")
