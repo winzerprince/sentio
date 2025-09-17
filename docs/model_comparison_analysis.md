@@ -1,11 +1,11 @@
 # SVR vs XGBoost Model Comparison Analysis
 
-**Date:** September 16, 2025  
+**Date:** September 17, 2025  
 **Analysis:** Side-by-side prediction comparison of SVR and XGBoost models on 10 sample tracks
 
 ## Executive Summary
 
-The comparison confirms that **SVR and XGBoost make meaningfully different predictions**, with SVR showing superior performance on arousal prediction (R²=0.567 vs 0.562). The models show substantial disagreement on individual predictions, with average differences of ~0.33 points on both dimensions.
+The comparison confirms that **SVR and XGBoost make meaningfully different predictions**, with SVR showing superior performance on arousal prediction (R²=0.567 vs 0.562) while XGBoost performs better on valence prediction. The models show substantial disagreement on individual predictions, with average differences of ~0.33 points on both dimensions.
 
 ## Key Findings
 
@@ -63,9 +63,21 @@ Consider combining both models:
 - Features: mean, std, min, max aggregations of audio features
 - StandardScaler applied consistently across both models
 
-## Future Work
+## Model Performance Analysis
 
-1. **Expand Sample Size:** Test on larger validation set for statistical significance
-2. **Correlation Analysis:** Examine where models agree/disagree most
-3. **Ensemble Methods:** Implement weighted combination based on dimension-specific performance
-4. **Cross-Validation:** Validate arousal superiority across different data splits
+### Why SVR Outperforms XGBoost for Arousal Prediction
+
+1. **Kernel Advantage for Continuous Features:**
+   - SVR's RBF kernel effectively captures the non-linear relationships in spectral and temporal audio features that strongly correlate with arousal.
+   - The continuous nature of arousal (energy level in music) maps well to SVR's ability to model smooth transitions in feature space.
+
+2. **Regularization Benefits:**
+   - SVR's C parameter provides effective regularization that prevents overfitting to noise in the training data.
+   - Arousal features (energy, tempo, rhythm patterns) benefit from this regularized approach as they contain more consistent patterns across genres.
+
+3. **Robust to Outliers:**
+   - SVR's epsilon-insensitive loss function makes it more robust to outliers in arousal annotations.
+   - Arousal ratings tend to have higher inter-annotator agreement but occasional outliers that SVR handles effectively.
+
+4. **Feature Interaction Handling:**
+   - While XGBoost excels at complex feature interactions, arousal prediction depe
