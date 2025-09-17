@@ -109,3 +109,4 @@ secrets.json
 # Large Model Files
 *.bin
 *.safetensors
+EDA/
