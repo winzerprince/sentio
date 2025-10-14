@@ -1,0 +1,111 @@
+# Audio Spectrogram Transformer for Emotion Recognition with GAN-Based Data Augmentation
+
+## Title
+**Large Acoustic Models for Emotion-Conditioned Music Understanding in Resource-Constrained Settings**
+
+---
+
+## Abstract
+
+This work proposes the development of a **large acoustic model** for **emotion-aware music understanding and recommendation**, designed to move beyond genre- or artist-based systems by learning direct mappings between **musical features** and **emotional responses**.
+
+### 🎯 Core Methodology
+
+#### 1. **Dataset Curation and Expansion**
+- Large-scale emotion-annotated corpora (**DEAM dataset**)
+- Locally curated music samples from Uganda
+- Annotations along the **valence–arousal (VA) scale**
+- **Data augmentation** using **Generative Adversarial Networks (GANs)** to create synthetic variations in:
+  - Tempo
+  - Timbre
+  - Harmonic complexity
+  - Instrumentation
+
+#### 2. **Feature Extraction Pipeline**
+Captures multi-dimensional acoustic properties:
+
+**Low-level Acoustic Descriptors:**
+- Tempo
+- Loudness
+- Spectral centroid
+- **MFCCs** (Mel-Frequency Cepstral Coefficients)
+
+**Tonal Features:**
+- Chroma vectors
+- Mode detection
+- Harmonic change detection
+
+**Temporal Dynamics:**
+- Beat strength
+- Rhythmic variability
+- Onset timing
+
+#### 3. **Model Architecture: Audio Spectrogram Transformer (AST)**
+- **Patch-based embedding** of mel-spectrograms
+- **Self-attention mechanisms** to capture temporal and spectral patterns
+- **Multitask learning** objectives:
+  - **Regression**: Continuous VA trajectories
+  - **Classification**: Categorical affect states
+
+#### 4. **Psychological Mechanisms of Music-Emotion Linkage**
+The model explicitly encodes:
+- **Tempo and loudness shifts** → Brain-stem reflexes, arousal spikes
+- **Mode and harmonic changes** → Emotional contagion, valence modulation
+- **Unexpected events** → Musical expectancy violations
+- **Complexity/novelty measures** → Aesthetic judgment
+
+### 🎵 Current Implementation Focus
+
+This project focuses on the **emotion recognition** component using:
+- **Audio Spectrogram Transformer (AST)**
+- **GAN-based data augmentation** to expand training data
+- **Valence-Arousal prediction** from audio spectrograms
+
+### 📊 Evaluation Metrics
+
+**Objective Metrics:**
+- **Concordance Correlation Coefficient (CCC)** for VA prediction
+- **Mean Squared Error (MSE)** for regression accuracy
+- **Mean Absolute Error (MAE)** for average prediction error
+
+**Subjective Assessment:**
+- Alignment with intended emotional states
+- Cultural appropriateness validation
+
+### 🌍 Target Application
+
+A **scientifically grounded**, **resource-efficient** acoustic system that:
+- ✅ Learns how music induces emotion
+- ✅ Predicts emotional responses from audio
+- ✅ Enables emotion-aware music recommendation
+- ✅ Applicable in **resource-constrained contexts** (e.g., Uganda, mobile devices)
+
+---
+
+## Keywords
+
+`Acoustic Emotion Modeling` • `Valence–Arousal Framework` • `Audio Spectrogram Transformer` • `Generative Adversarial Networks` • `Data Augmentation` • `Music Information Retrieval` • `Emotion Recognition` • `Deep Learning` • `Mel-Spectrograms`
+
+---
+
+## Project Components
+
+### ✅ Implemented
+1. **AST Model Architecture** - Vision Transformer adapted for audio
+2. **DEAM Dataset Integration** - ~1800 songs with VA annotations
+3. **Training Pipeline** - PyTorch-based with comprehensive metrics
+4. **Evaluation Framework** - MSE, MAE, CCC metrics
+
+### 🚧 In Progress
+1. **GAN-Based Data Augmentation** - Synthetic spectrogram generation
+2. **Augmented Training Pipeline** - Training AST with expanded dataset
+
+### 🔮 Future Work
+1. Knowledge Distillation for edge deployment
+2. Diffusion-based music generation
+3. Emotion-aware recommendation system
+4. Cultural generalization with Ugandan music
+
+---
+
+*Last Updated: October 2025*
