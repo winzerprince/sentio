@@ -108,3 +108,9 @@ secrets.json
 # Large Model Files
 *.bin
 *.safetensors
+
+
+
+
+# Ignore Smart Environment folder
+.smart-env
