@@ -1,4 +1,6 @@
-# 🚀 Knowledge Distillation Quick Start Guide
+# 🚀 Knowledge Distillation Quick Start Guide (UPDATED)
+
+**Last Updated:** After hook cleanup fixes
 
 ## What Was Added
 
