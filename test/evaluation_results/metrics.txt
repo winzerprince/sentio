@@ -1,0 +1,20 @@
+EVALUATION METRICS
+============================================================
+
+Valence Metrics:
+  MAE:         0.2164
+  RMSE:        0.2843
+  Correlation: 0.3236
+  R² Score:    -0.1092
+
+Arousal Metrics:
+  MAE:         0.2558
+  RMSE:        0.2925
+  Correlation: 0.5033
+  R² Score:    0.2218
+
+Average Metrics:
+  MAE:         0.2361
+  RMSE:        0.2884
+  Correlation: 0.4134
+  R² Score:    0.0563

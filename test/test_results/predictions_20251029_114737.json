@@ -1,0 +1,72 @@
+[
+  {
+    "valence": -0.05848703160881996,
+    "arousal": -0.12418340146541595,
+    "valence_normalized": 0.47075648419559,
+    "arousal_normalized": 0.437908299267292,
+    "file": "10.mp3"
+  },
+  {
+    "valence": 0.10155632346868515,
+    "arousal": -0.07400141656398773,
+    "valence_normalized": 0.5507781617343426,
+    "arousal_normalized": 0.46299929171800613,
+    "file": "1000.mp3"
+  },
+  {
+    "valence": 0.0856710821390152,
+    "arousal": -0.10400313884019852,
+    "valence_normalized": 0.5428355410695076,
+    "arousal_normalized": 0.44799843057990074,
+    "file": "1002.mp3"
+  },
+  {
+    "valence": 0.10323500633239746,
+    "arousal": 0.08914803713560104,
+    "valence_normalized": 0.5516175031661987,
+    "arousal_normalized": 0.5445740185678005,
+    "file": "1003.mp3"
+  },
+  {
+    "valence": 0.14801305532455444,
+    "arousal": -0.0024427722673863173,
+    "valence_normalized": 0.5740065276622772,
+    "arousal_normalized": 0.49877861386630684,
+    "file": "1004.mp3"
+  },
+  {
+    "valence": -0.017426976934075356,
+    "arousal": -0.15083174407482147,
+    "valence_normalized": 0.4912865115329623,
+    "arousal_normalized": 0.42458412796258926,
+    "file": "1005.mp3"
+  },
+  {
+    "valence": 0.17513388395309448,
+    "arousal": 0.08267586678266525,
+    "valence_normalized": 0.5875669419765472,
+    "arousal_normalized": 0.5413379333913326,
+    "file": "1006.mp3"
+  },
+  {
+    "valence": 0.2163991779088974,
+    "arousal": 0.06653545051813126,
+    "valence_normalized": 0.6081995889544487,
+    "arousal_normalized": 0.5332677252590656,
+    "file": "1007.mp3"
+  },
+  {
+    "valence": 0.21476826071739197,
+    "arousal": -0.039935532957315445,
+    "valence_normalized": 0.607384130358696,
+    "arousal_normalized": 0.4800322335213423,
+    "file": "1008.mp3"
+  },
+  {
+    "valence": 0.04763244464993477,
+    "arousal": 0.012891723774373531,
+    "valence_normalized": 0.5238162223249674,
+    "arousal_normalized": 0.5064458618871868,
+    "file": "1009.mp3"
+  }
+]

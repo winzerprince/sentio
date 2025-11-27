@@ -11,6 +11,10 @@ scikit-learn>=1.3.0
 xgboost>=1.7.0
 joblib>=1.0.0           # For model saving/loading
 
+# Transformers & Vision Models
+transformers>=4.30.0    # Hugging Face transformers (for ViT models)
+pillow>=10.0.0          # Image processing for spectrograms
+
 # Audio Processing
 # Required for AST model training with raw audio processing
 librosa>=0.10.0         # Audio analysis and feature extraction

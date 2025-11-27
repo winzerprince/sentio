@@ -1,0 +1,11 @@
+file,valence,arousal,valence_normalized,arousal_normalized,valence_interpretation,arousal_interpretation,emotion
+10.mp3,-0.05848703160881996,-0.12418340146541595,0.47075648419559,0.437908299267292,Neutral 😐,Low Energy 😌,"Sad/Depressed (Low Valence, Low Arousal) 😞"
+1000.mp3,0.10155632346868515,-0.07400141656398773,0.5507781617343426,0.46299929171800613,Positive 🙂,Moderate Energy 💫,"Calm/Peaceful (High Valence, Low Arousal) 😌"
+1002.mp3,0.0856710821390152,-0.10400313884019852,0.5428355410695076,0.44799843057990074,Neutral 😐,Low Energy 😌,"Calm/Peaceful (High Valence, Low Arousal) 😌"
+1003.mp3,0.10323500633239746,0.08914803713560104,0.5516175031661987,0.5445740185678005,Positive 🙂,Moderate Energy 💫,"Happy/Excited (High Valence, High Arousal) 🎉"
+1004.mp3,0.14801305532455444,-0.0024427722673863173,0.5740065276622772,0.49877861386630684,Positive 🙂,Moderate Energy 💫,"Calm/Peaceful (High Valence, Low Arousal) 😌"
+1005.mp3,-0.017426976934075356,-0.15083174407482147,0.4912865115329623,0.42458412796258926,Neutral 😐,Low Energy 😌,"Sad/Depressed (Low Valence, Low Arousal) 😞"
+1006.mp3,0.17513388395309448,0.08267586678266525,0.5875669419765472,0.5413379333913326,Positive 🙂,Moderate Energy 💫,"Happy/Excited (High Valence, High Arousal) 🎉"
+1007.mp3,0.2163991779088974,0.06653545051813126,0.6081995889544487,0.5332677252590656,Positive 🙂,Moderate Energy 💫,"Happy/Excited (High Valence, High Arousal) 🎉"
+1008.mp3,0.21476826071739197,-0.039935532957315445,0.607384130358696,0.4800322335213423,Positive 🙂,Moderate Energy 💫,"Calm/Peaceful (High Valence, Low Arousal) 😌"
+1009.mp3,0.04763244464993477,0.012891723774373531,0.5238162223249674,0.5064458618871868,Neutral 😐,Moderate Energy 💫,"Happy/Excited (High Valence, High Arousal) 🎉"
