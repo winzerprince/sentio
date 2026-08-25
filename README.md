@@ -1,6 +1,29 @@
-# Sentio: Music Emotion Recognition with Audio Spectrogram Transformers by SW-AI-36
+<div align="center">
+  <h1>Sentio</h1>
+  <p><strong>Music Emotion Recognition with Audio Spectrogram Transformers and GAN Augmentation</strong></p>
+  <p>Developed by SW-AI-36</p>
 
-**Sentio** is an advanced deep learning system for music emotion recognition that predicts continuous emotional dimensions (valence and arousal) from audio spectrograms. The project leverages state-of-the-art **Audio Spectrogram Transformers (AST)** with **GAN-based data augmentation** to achieve superior performance in understanding the emotional content of music.
+[![Made with PyTorch](https://img.shields.io/badge/Made%20with-PyTorch-EE4C2C?style=flat&logo=pytorch)](https://pytorch.org/)
+[![Python 3.8+](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+</div>
+
+Sentio is a deep learning system for music emotion recognition that predicts continuous emotional dimensions (valence and arousal) from audio spectrograms. The project uses Audio Spectrogram Transformers (AST) with GAN-based data augmentation to improve robustness and predictive performance.
+
+## Table of Contents
+
+- [Project Evolution and Results](#project-evolution--results)
+- [Performance Comparison](#performance-comparison)
+- [Why Audio Spectrogram Transformers Won](#why-audio-spectrogram-transformers-won)
+- [Repository Structure](#repository-structure)
+- [Quick Start](#quick-start)
+- [Dataset](#dataset)
+- [Model Architecture Details](#model-architecture-details)
+- [Detailed Results and Analysis](#detailed-results--analysis)
+- [Technical Implementation](#technical-implementation)
+- [Key Files Guide](#key-files-guide)
+- [Contributing](#contributing)
+- [Citation](#citation)
 
 ---
 
@@ -8,7 +31,7 @@
 
 This project represents a systematic exploration of music emotion recognition, progressing through multiple modeling approaches to identify the optimal architecture:
 
-### **Phase 1: Traditional Machine Learning** *Completed*
+### Phase 1: Traditional Machine Learning (Completed)
 - **Models Tested**: Ridge Regression, Support Vector Regression (SVR), XGBoost
 - **Best Performance**: XGBoost (R² = 0.540)
 - **Key Insight**: Traditional models struggled with temporal dynamics and complex spectral patterns
@@ -17,7 +40,7 @@ This project represents a systematic exploration of music emotion recognition, p
   - Unable to capture long-range temporal dependencies
   - Limited representation learning capability
 
-### **Phase 2: Convolutional-Recurrent Neural Networks (CRNN)** *Completed*
+### Phase 2: Convolutional-Recurrent Neural Networks (CRNN) (Completed)
 - **Architecture**: CNN layers for spectral features + LSTM/GRU for temporal modeling
 - **Performance**: Moderate improvement over traditional ML
 - **Key Insight**: Better temporal modeling but still limited in capturing global context
@@ -26,7 +49,7 @@ This project represents a systematic exploration of music emotion recognition, p
   - Difficulty modeling long-range dependencies
   - Limited parallelization during training
 
-### **Phase 3: Audio Spectrogram Transformers (AST)** *Current Best*
+### Phase 3: Audio Spectrogram Transformers (AST) (Current Best)
 - **Architecture**: Vision Transformer adapted for audio spectrograms
 - **Innovation**: Self-attention mechanism captures both local and global patterns
 - **Performance**: **Significant improvement** over previous approaches
@@ -36,7 +59,7 @@ This project represents a systematic exploration of music emotion recognition, p
   - Learned positional embeddings for temporal structure
   - Transfer learning from ImageNet-pretrained ViT
 
-### **Phase 4: AST with GAN-Based Data Augmentation** *Best Performance*
+### Phase 4: AST with GAN-Based Data Augmentation (Best Performance)
 - **Innovation**: Conditional GAN generates synthetic spectrograms for data augmentation
 - **Dataset Expansion**: 1,800 real samples → 5,000 total (with 3,200 synthetic)
 - **Performance**: **10-18% improvement** over baseline AST
@@ -65,10 +88,10 @@ This project represents a systematic exploration of music emotion recognition, p
 
 ## Why Audio Spectrogram Transformers Won
 
-### **The AST Advantage**
+### The AST Advantage
 
 **1. Self-Attention Mechanism**
-```
+```text
 Traditional CNN/RNN: Local receptive fields, sequential processing
 AST: Every patch attends to every other patch globally
 Result: Captures both local details AND global musical structure
@@ -143,7 +166,7 @@ sentio/
 
 ## Quick Start
 
-### **View Final Results** (Recommended Starting Point)
+### View Final Results (Recommended Starting Point)
 
 Navigate to the **`ast/`** folder to see our best-performing models:
 
@@ -179,7 +202,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### **Required Dependencies**
+### Required Dependencies
 
 ```
 torch>=2.0.0
@@ -193,14 +216,14 @@ scikit-learn>=1.3.0
 
 ### **Run Training**
 
-#### **Option 1: Baseline AST (Kaggle)**
+#### Option 1: Baseline AST (Kaggle)
 
 1. Open `ast/train_ast_kaggle.ipynb` on [Kaggle](https://www.kaggle.com)
 2. Add DEAM dataset: Search for `deam-mediaeval-dataset-emotional-analysis-in-music`
 3. Enable GPU accelerator
 4. Run all cells (~30-60 minutes with GPU)
 
-#### **Option 2: AST with GAN Augmentation (Kaggle)** - **Recommended**
+#### Option 2: AST with GAN Augmentation (Kaggle) (Recommended)
 
 1. Open `ast/train_ast_with_gan_augmentation_kaggle.ipynb` on Kaggle
 2. Add DEAM dataset (same as above)
@@ -210,7 +233,7 @@ scikit-learn>=1.3.0
    - Synthetic generation: ~5 minutes
    - AST training: ~60-90 minutes
 
-#### **Option 3: Local Training**
+#### Option 3: Local Training
 
 ```bash
 cd ast/
@@ -221,7 +244,7 @@ python train_ast.py --config config.yaml
 
 ## Dataset
 
-### **DEAM (Database for Emotion Analysis using Music)**
+### DEAM (Database for Emotion Analysis using Music)
 
 - **Size**: 1,800 songs (1,744 after quality filtering)
 - **Annotations**: Continuous valence and arousal ratings
@@ -233,7 +256,7 @@ python train_ast.py --config config.yaml
 
 ### **Audio Processing Pipeline**
 
-```
+```text
 MP3 Audio (45s)
     ↓ librosa.load(sr=22050)
 Waveform [661,500 samples]
@@ -258,7 +281,7 @@ Model-Ready Spectrogram
 
 ### **Audio Spectrogram Transformer (AST)**
 
-```python
+```text
 Architecture:
 ├── Input: Spectrogram [1, 128, 2584]
 ├── Patch Embedding: 16×16 patches → 384-dim vectors
@@ -278,7 +301,7 @@ Total Parameters: ~10.5M
 ### **Conditional GAN for Data Augmentation**
 
 **Generator Architecture**:
-```python
+```text
 Input: [100-dim noise] + [2-dim emotion (valence, arousal)]
     ↓ Linear(102 → 663,552) + Reshape
 [128, 16, 323]
@@ -293,7 +316,7 @@ Total Parameters: ~73M
 ```
 
 **Discriminator Architecture**:
-```python
+```text
 Input: [1, 128, 2584] spectrogram + [2] emotion
     ↓ Concatenate emotion as channels
 [3, 128, 2584]
@@ -315,7 +338,7 @@ Total Parameters: ~5M
 
 ## Detailed Results & Analysis
 
-### **Baseline AST Performance**
+### Baseline AST Performance
 
 | Metric | Valence | Arousal | Combined |
 |--------|---------|---------|----------|
@@ -332,7 +355,7 @@ Total Parameters: ~5M
 - Scheduler: CosineAnnealingLR
 - Training time: ~3.75 minutes (GPU)
 
-### **AST + GAN Augmentation Performance**
+### AST + GAN Augmentation Performance
 
 | Metric | Valence | Arousal | Combined | Improvement |
 |--------|---------|---------|----------|-------------|
@@ -348,7 +371,7 @@ Total Parameters: ~5M
 - Total training time: ~2-3 hours (GPU)
 - **Key improvement**: Better generalization, less overfitting
 
-### **Why the Improvement?**
+### Why the Improvement?
 
 1. **More Training Data**: 2.8× increase (1,440 → 4,640 samples)
 2. **Better Emotion Coverage**: GAN fills gaps in valence-arousal space
@@ -359,7 +382,7 @@ Total Parameters: ~5M
 
 ## Visualizations
 
-### **Model Performance Comparison**
+### Model Performance Comparison
 
 ![Model Comparison - R²](old_outputs/results/model_comparison_r2.png)
 *R² scores across different models. AST + GAN achieves best performance.*
@@ -367,7 +390,7 @@ Total Parameters: ~5M
 ![Model Comparison - MSE](old_outputs/results/model_comparison_mse.png)
 *Mean Squared Error comparison. Lower is better - AST + GAN wins.*
 
-### **Prediction Quality**
+### Prediction Quality
 
 ![Valence Predictions](old_outputs/results/predictions_comparison_valence.png)
 *Valence predictions: True vs Predicted scatter plot*
@@ -375,7 +398,7 @@ Total Parameters: ~5M
 ![Arousal Predictions](old_outputs/results/predictions_comparison_arousal.png)
 *Arousal predictions: True vs Predicted scatter plot*
 
-### **Training Curves**
+### Training Curves
 
 ![Expected vs Actual Learning](old_outputs/expected_vs_actual_learning_curves.png)
 *Training and validation loss curves showing convergence*
@@ -386,7 +409,7 @@ Total Parameters: ~5M
 
 Both notebooks in the `ast/` folder contain comprehensive educational sections:
 
-### **Topics Covered**
+### Topics Covered
 
 1. **Audio Fundamentals**: Sound waves, frequency, amplitude, digital audio
 2. **Signal Processing**: FFT, STFT, mel-spectrograms, normalization
@@ -411,22 +434,22 @@ Both notebooks in the `ast/` folder contain comprehensive educational sections:
 
 ## Project Timeline & Evolution
 
-### **September 2024: Traditional ML**
+### September 2024: Traditional ML
 - Implemented Ridge, SVR, XGBoost
 - Best result: XGBoost R² = 0.540
 - Limited by handcrafted features
 
-### **October 2024: Deep Learning Exploration**
+### October 2024: Deep Learning Exploration
 - Experimented with CRNN architecture
 - Moderate improvement over traditional ML
 - Sequential processing bottleneck
 
-### **November 2024: Transformer Breakthrough**
+### November 2024: Transformer Breakthrough
 - Implemented Audio Spectrogram Transformer
 - Significant improvement: R² = 0.605
 - Self-attention captures global context
 
-### **December 2024-January 2025: GAN Augmentation**
+### December 2024-January 2025: GAN Augmentation
 - Developed Conditional GAN for synthetic data
 - Generated 3,200 high-quality synthetic spectrograms
 - Final performance: R² = 0.695 (**+14.9% improvement**)
@@ -436,19 +459,19 @@ Both notebooks in the `ast/` folder contain comprehensive educational sections:
 
 ## Future Work
 
-### **Immediate Improvements**
+### Immediate Improvements
 - [ ] Increase GAN training epochs (10 → 20-30)
 - [ ] Increase AST training epochs (5 → 15-20)
 - [ ] Experiment with different synthetic:real ratios
 - [ ] Try larger AST models (12 layers, 768 dim)
 
-### **Advanced Extensions**
+### Advanced Extensions
 - [ ] Multi-task learning (valence + arousal + genre)
 - [ ] Temporal emotion modeling (predict trajectories)
 - [ ] Cross-modal learning (audio + lyrics)
 - [ ] Active learning for efficient labeling
 
-### **Production Deployment**
+### Production Deployment
 - [ ] Model optimization (quantization, pruning)
 - [ ] REST API deployment (FastAPI)
 - [ ] Web interface for music analysis
@@ -467,7 +490,7 @@ Both notebooks in the `ast/` folder contain comprehensive educational sections:
 
 ## Technical Implementation
 
-### **Training Configuration**
+### Training Configuration
 
 ```yaml
 # AST Model
@@ -495,7 +518,7 @@ gan_batch_size: 32
 num_synthetic: 3200
 ```
 
-### **Hardware Requirements**
+### Hardware Requirements
 
 **Minimum**:
 - GPU: NVIDIA GPU with 8GB VRAM (e.g., GTX 1070, RTX 2070)
@@ -516,7 +539,7 @@ num_synthetic: 3200
 
 ## Key Files Guide
 
-### **Start Here**
+### Start Here
 
 1. **`ast/train_ast_with_gan_augmentation_kaggle.ipynb`** - Best performing model
    - Complete GAN + AST pipeline
@@ -528,14 +551,14 @@ num_synthetic: 3200
    - Comprehensive transformer explanations
    - Faster training time
 
-### **Documentation**
+### Documentation
 
 3. **`docs/training_summary.md`** - Traditional ML results and analysis
 4. **`docs/model_comparison_analysis.md`** - Detailed model comparisons
 5. **`docs/CRNN_Architecture_Deep_Dive.md`** - CRNN explanations
 6. **`ast/KAGGLE_README.md`** - Kaggle deployment instructions
 
-### **Legacy Code** (Reference Only)
+### Legacy Code (Reference Only)
 
 - `src/` - Traditional ML implementations (Ridge, SVR, XGBoost)
 - `old_outputs/` - Previous experiment results and visualizations
@@ -545,7 +568,7 @@ num_synthetic: 3200
 
 ## Results Summary
 
-### **Key Achievements**
+### Key Achievements
 
 **State-of-the-art Performance**: 69.5% variance explained (R² = 0.695)  
 **Significant Improvement**: 14.9% better than baseline AST  
@@ -553,7 +576,7 @@ num_synthetic: 3200
 **Comprehensive Documentation**: Two fully educational notebooks  
 **Reproducible Results**: All code and configurations available  
 
-### **Comparison with Literature**
+### Comparison with Literature
 
 | Study | Model | Dataset | Valence R² | Arousal R² | Notes |
 |-------|-------|---------|------------|------------|-------|
@@ -576,7 +599,7 @@ We welcome contributions! Here's how:
 4. **Push to branch**: `git push origin feature/amazing-feature`
 5. **Open a Pull Request**
 
-### **Areas for Contribution**
+### Areas for Contribution
 
 - Improving GAN architecture
 - Adding more evaluation metrics
@@ -642,13 +665,6 @@ If you find this project useful, please consider giving it a star on GitHub!
 ---
 
 <div align="center">
-
-### From Audio Waves to Emotional Understanding
-
-**Sentio** bridges the gap between signal processing and deep learning to understand the emotional language of music.
-
-[![Made with PyTorch](https://img.shields.io/badge/Made%20with-PyTorch-EE4C2C?style=flat&logo=pytorch)](https://pytorch.org/)
-[![Python 3.8+](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
+  <h3>From Audio Waves to Emotional Understanding</h3>
+  <p><strong>Sentio</strong> bridges signal processing and deep learning to model the emotional language of music.</p>
 </div>
